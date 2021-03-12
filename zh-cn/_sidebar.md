@@ -1,5 +1,5 @@
 - 快速上手
-    * [入门教程](/zh-cn/readme.md)
+    * [入门教程](/zh-cn/README.md)
     * [高级教程](/zh-cn/tutorial.md)
 
 - [贡献代码](/zh-cn/contributing.md)

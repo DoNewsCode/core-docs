@@ -150,3 +150,4 @@ That being said, let's redirect our attention to other goodies package core has 
   For instance, you can use go kit to construct your service, and leveraging gRPC, AMPQ, thrift, etc. Non-network services like CLI and Cron are also supported.
 
 - Sub packages provide support around service coordination, including but not limited to distributed tracing, metrics exporting, error handling, event-dispatching, and leader election.
+

@@ -1,5 +1,5 @@
 - Getting start
-    * [Quickstart](/en/readme.md)
+    * [Quickstart](/en/README.md)
     * [Tutorial](/en/tutorial.md)
 
 - [Contributing](/en/contributing.md)
