@@ -23,11 +23,12 @@ jobs:
           next_version: "TBD"
 
       # Add Changelog
-      - run: |
-          git checkout -b changelog-${GITHUB_SHA}
-          git add CHANGELOG.md
-          git commit -m "chore: auto update changelog" CHANGELOG.md
-          cat CHANGELOG.md
+      - uses: github-actions-x/commit@v2.8
+        with:
+          github-token: ${{ secrets.NFANGXU_GITHUB_TOKEN }}
+          push-branch: ${GITHUB_SHA}
+          commit-message: 'auto changelog'
+          rebase: 'true'
 
       # Create pull request
       - uses: repo-sync/pull-request@v2
