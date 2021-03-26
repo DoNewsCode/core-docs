@@ -12,27 +12,33 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Set output
+        id: vars
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+
       - name: Change branch
+        env:
+          RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
         run: |-
-          git checkout -b automatic-changelog && git checkout automatic-changelog
-          echo "Deploying to production server on branch $GITHUB_REF"
+          git checkout -b release-changelog && git checkout release-changelog
+          echo ${{ env.RELEASE_VERSION }}
 
       - name: Generate Changelog
         uses: nuuday/github-changelog-action@v1.0.0
         with:
-          next_version: "TBD"
+          next_version: ${{ steps.vars.outputs.tag }}
 
       - name: Commit and push
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: 'automatic changelog'
-          branch: automatic-changelog
+          commit_message: release ${{ steps.vars.outputs.tag }}
+          branch: release-changelog
           push_options: '--force'
 
       - name: Create pull request
         uses: repo-sync/pull-request@v2
         with:
-          source_branch: automatic-changelog
+          source_branch: release-changelog
           destination_branch: "main"
-          pr_title: "Update Changelog"
+          pr_title: Release ${{ steps.vars.outputs.tag }} Changelog
           github_token: ${{ secrets.NFANGXU_GITHUB_TOKEN }}
