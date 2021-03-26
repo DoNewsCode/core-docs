@@ -2,8 +2,8 @@ name: 'Generate Auto Changelog'
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - v*
 
 jobs:
   Changelog:
@@ -15,6 +15,7 @@ jobs:
       - name: Change branch
         run: |-
           git checkout -b automatic-changelog && git checkout automatic-changelog
+          echo "Deploying to production server on branch $GITHUB_REF"
 
       - name: Generate Changelog
         uses: nuuday/github-changelog-action@v1.0.0
