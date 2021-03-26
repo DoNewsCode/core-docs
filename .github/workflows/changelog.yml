@@ -26,7 +26,8 @@ jobs:
       - uses: github-actions-x/commit@v2.8
         with:
           github-token: ${{ secrets.NFANGXU_GITHUB_TOKEN }}
-          push-branch: ${GITHUB_SHA}
+          push-branch: auto-changelog
+          files: CHANGELOG.md
           commit-message: 'auto changelog'
           rebase: 'true'
 
