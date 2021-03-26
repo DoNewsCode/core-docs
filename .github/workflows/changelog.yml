@@ -32,7 +32,7 @@ jobs:
       # Create pull request
       - uses: repo-sync/pull-request@v2
         with:
-          source_branch: $GITHUB_SHA
+          source_branch: ${GITHUB_SHA}
           destination_branch: "main"
           pr_title: "Update Changelog"
           github_token: ${{ secrets.NFANGXU_GITHUB_TOKEN }}
