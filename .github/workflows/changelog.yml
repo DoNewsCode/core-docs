@@ -11,8 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Change branch
         run: |-
-          git checkout -b automatic-changelog && git checkout automatic-changelog
+        git checkout -b automatic-changelog && git checkout automatic-changelog
 
       - name: Generate Changelog
         uses: nuuday/github-changelog-action@v1.0.0
