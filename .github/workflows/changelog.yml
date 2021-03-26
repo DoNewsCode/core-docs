@@ -14,8 +14,8 @@ jobs:
 
       # Set git user
       - run: |
-        git config --local user.email "nfangxu@gmail.com"
-        git config --local user.name "nfangxu"
+          git config --local user.email "nfangxu@gmail.com"
+          git config --local user.name "nfangxu"
 
       # Generate changelog
       - uses: nuuday/github-changelog-action@v1.0.0
