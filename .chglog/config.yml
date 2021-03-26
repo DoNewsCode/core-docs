@@ -13,10 +13,15 @@ options:
         - refactor
   commit_groups:
     title_maps:
-      feat: Features
-      fix: Bug Fixes
-      perf: Performance Improvements
-      refactor: Code Refactoring
+      feat: ✨ Features
+      fix: 🐛 Bug Fixes
+      perf: ⚡️ Performance
+      refactor: ♻️ Code Refactoring
+      doc: 📚 Documentation
+      docs: 📚 Documentation
+      chore: 🏗 Chore
+      test: 🚦 Test
+      style: 🎨 Style
   header:
     pattern: "^(\\w*)(?:\\(([\\w\\$\\.\\-\\*\\s]*)\\))?\\:\\s(.*)$"
     pattern_maps:

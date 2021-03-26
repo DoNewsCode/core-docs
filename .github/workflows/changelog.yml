@@ -2,8 +2,8 @@ name: 'Generate Auto Changelog'
 
 on:
   push:
-    tags:
-      - v*
+    branches:
+      - main
 
 jobs:
   Changelog:
@@ -20,7 +20,7 @@ jobs:
         env:
           RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
         run: |-
-          git checkout -b release-changelog && git checkout release-changelog
+          git checkout -b release-changelog || git checkout release-changelog
 
       - name: Generate Changelog
         uses: nuuday/github-changelog-action@v1.0.0
