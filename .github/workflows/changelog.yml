@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  package:
+  Changelog:
     runs-on: ubuntu-latest
     steps:
       # checkout resp
@@ -32,4 +32,4 @@ jobs:
         with:
           destination_branch: "main"
           pr_title: "Update Changelog"
-          github_token: ${{ secrets.FANGX_GITHUB_TOKEN }}
+          github_token: ${{ secrets.NFANGXU_GITHUB_TOKEN }}
