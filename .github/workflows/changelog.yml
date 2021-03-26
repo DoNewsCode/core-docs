@@ -16,6 +16,7 @@ jobs:
       - run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Github Actions"
+          git checkout -b automatic-changelog
 
       # Generate changelog
       - uses: nuuday/github-changelog-action@v1.0.0
