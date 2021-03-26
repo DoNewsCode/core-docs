@@ -23,18 +23,17 @@ jobs:
           next_version: "TBD"
 
       # Add Changelog
-      - uses: github-actions-x/commit@v2.8
+      - uses: stefanzweifel/git-auto-commit-action@v4
         with:
+          commit_message: 'automatic changelog'
+          branch: automatic-changelog
           github-token: ${{ secrets.NFANGXU_GITHUB_TOKEN }}
-          push-branch: auto-changelog
           files: CHANGELOG.md
-          commit-message: 'auto changelog'
-          rebase: 'true'
 
       # Create pull request
       - uses: repo-sync/pull-request@v2
         with:
-          source_branch: auto-changelog
+          source_branch: automatic-changelog
           destination_branch: "main"
           pr_title: "Update Changelog"
           github_token: ${{ secrets.NFANGXU_GITHUB_TOKEN }}
