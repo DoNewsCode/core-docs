@@ -14,8 +14,8 @@ jobs:
 
       # Set git user
       - run: |
-          git config --local user.email "nfangxu@gmail.com"
-          git config --local user.name "nfangxu"
+          git config --local user.email "action@github.com"
+          git config --local user.name "Github Actions"
 
       # Generate changelog
       - uses: nuuday/github-changelog-action@v1.0.0
@@ -24,8 +24,10 @@ jobs:
 
       # Add Changelog
       - run: |
+          git checkout -b changelog-${{ steps.vars.outputs.sha_short }}
           git add CHANGELOG.md
           git commit -m "chore: auto update changelog" CHANGELOG.md
+          cat CHANGELOG.md
 
       # Create pull request
       - uses: repo-sync/pull-request@v2
