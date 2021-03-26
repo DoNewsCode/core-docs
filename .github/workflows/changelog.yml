@@ -1,0 +1,35 @@
+name: 'Generate Auto Changelog'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout resp
+      - uses: actions/checkout@v2
+
+      # Set git user
+      - run: |
+        git config --local user.email "nfangxu@gmail.com"
+        git config --local user.name "nfangxu"
+
+      # Generate changelog
+      - uses: nuuday/github-changelog-action@v1.0.0
+        with:
+          next_version: "TBD"
+
+      # Add Changelog
+      - run: |
+          git add CHANGELOG.md
+          git commit -m "chore: auto update changelog" CHANGELOG.md
+
+      # Create pull request
+      - uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: "main"
+          pr_title: "Update Changelog"
+          github_token: ${{ secrets.FANGX_GITHUB_TOKEN }}
